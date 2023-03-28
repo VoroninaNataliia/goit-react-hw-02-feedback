@@ -13,7 +13,7 @@ class App extends Component {
      bad: 0,
     
   }
-  handleUpdate = (e) => {
+  handleFeedbackClick = (e) => {
     const { name } = e.currentTarget;
     switch (name) {
       case "good":
@@ -33,7 +33,7 @@ class App extends Component {
             }));
             break;
       default:
-        throw new Error("Name doesn't exist");
+        throw new Error("no such case");
     }
   };
 
@@ -50,8 +50,8 @@ class App extends Component {
     const percentage = (good / total * 100).toFixed(0);
     return (
       <>
-        <Section >
-          <FeedbackOptions onHandleUpdate={this.handleUpdate} />
+        <Section>
+          <FeedbackOptions onHandleUpdate={this.handleFeedbackClick} />
         </Section>
         <Section title="Statistics">
           {total ? (
